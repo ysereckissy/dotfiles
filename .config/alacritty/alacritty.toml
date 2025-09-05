@@ -1,0 +1,18 @@
+[window]
+opacity = 0.95
+title = "avelino-fancy-title"
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+
+[font]
+# normal = { family = "MononokiNerdFont", style = "Regular" }
+normal = { family = "JetBrainsMonoNerdFontMono", style = "Regular" }
+# normal = { family = "JetBrainsMonoNLNerdFont", style = "LightItalic" }
+size = 14
+[env]
+TERM = "xterm-256color"
+
+[keyboard]
+bindings = [
+	{key = "N", mods = "Control", action = "CreateNewWindow" }
+]

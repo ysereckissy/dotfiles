@@ -70,9 +70,10 @@ style = "Regular"
 [[keyboard.bindings]]
 action = "CreateNewWindow"
 key = "N"
-mods = "Control|Shift"
+mods = "Control"
 
 [[mouse.bindings]]
 mouse = "Right"
 mods = "Control"
-action = "Paste"
+action = "PasteSelection"
+

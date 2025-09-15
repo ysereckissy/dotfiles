@@ -16,3 +16,6 @@
 [submodule ".config/alacritty/themes"]
 	path = .config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule ".vim/pack/git-plugins/start/taglist"]
+	path = .vim/pack/git-plugins/start/taglist
+	url = https://github.com/yegappan/taglist.git

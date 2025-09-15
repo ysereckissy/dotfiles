@@ -1,6 +1,6 @@
 # My dotfiles
 
-This repository contains the dotfiles for my systems
+This repository contains the dotfiles for my systems. This repository uses many vim plugins repositories as submodule. Please make sure you initialize and update submodules
 
 ## Requirements
 

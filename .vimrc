@@ -94,11 +94,14 @@ if has("autocmd")
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType python set foldmethod=indent
   autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
 endif
+
+let g:netrw_banner = 0
 
 " add built-in packages first
 packadd termdebug
@@ -106,5 +109,6 @@ packadd termdebug
 silent! helptags ALL    " Load help files for all plugins
 
 " Configure different plugins
-source $PWD/.config/plugins/nerd-tree.vim
+let NERDTreeHijackNetrw = 0
+source $HOME/dotfiles/.config/plugins/nerd-tree.vim
 

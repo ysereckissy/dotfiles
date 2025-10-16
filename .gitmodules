@@ -19,3 +19,6 @@
 [submodule ".vim/pack/git-plugins/start/taglist"]
 	path = .vim/pack/git-plugins/start/taglist
 	url = https://github.com/yegappan/taglist.git
+[submodule ".vim/pack/git-plugins/start/vim-unimpaired"]
+	path = .vim/pack/git-plugins/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git

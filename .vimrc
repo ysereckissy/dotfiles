@@ -1,15 +1,15 @@
 
 " An example for a vimrc file.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2019 Dec 17
+" Maintainer:   Bram Moolenaar <Bram@vim.org>
+" Last change:  2019 Dec 17
 "
 " To use it, copy it to
-"	       for Unix:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"	 for MS-Windows:  $VIM\_vimrc
-"	      for Haiku:  ~/config/settings/vim/vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+"              for Unix:  ~/.vimrc
+"             for Amiga:  s:.vimrc
+"        for MS-Windows:  $VIM\_vimrc
+"             for Haiku:  ~/config/settings/vim/vimrc
+"           for OpenVMS:  sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings, bail
 " out.
@@ -21,17 +21,28 @@ endif
 source $VIMRUNTIME/defaults.vim
 
 if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
+  set nobackup          " do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file (restore to previous version)
-  set backupdir-=.
-  set backupdir^=~/tmp,/tmp
-  set undofile
-  set undodir-=.
-  set undodir^=~/tmp,/tmp
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
+  set backup            " keep a backup file (restore to previous version)
+  let vim_backup_dir = expand('$HOME/tmp/.vim/backupdir')
+  if !isdirectory(vim_backup_dir)
+    call mkdir(vim_backup_dir, "p")
   endif
+  set backupdir=$HOME/tmp/.vim/backupdir
+
+  set undofile          " configure undo file and directory
+  let vim_undo_dir = expand('$HOME/tmp/.vim/undodir')
+  if !isdirectory(vim_undo_dir)
+    call mkdir(vim_undo_dir, "p")
+  endif
+  set undodir=$HOME/tmp/.vim/undodir
+
+  set swapfile
+  let vim_swp_dir = expand('$HOME/tmp/.vim/swp')
+  if !isdirectory(vim_swp_dir)
+    call mkdir(vim_swp_dir, "p")
+  endif
+  set directory=$HOME/tmp/.vim/swp
 endif
 
 if &t_Co > 2 || has("gui_running")
@@ -56,28 +67,23 @@ augroup END
 if has('syntax') && has('eval')
   packadd! matchit
 endif
-" Automaticall wrap text that text
-set wrap
-" Encoding
-set encoding=utf-8
 
-" Enable incremental search
-set incsearch
-" Show line number
-set number
-" Enable status bar
-set laststatus=2
-
+set wrap                " Automatically wrap text
+set encoding=utf-8      " Set encoding
+set incsearch           " Enable incremental search
+set number              " Show line number
+set laststatus=2        " Enable Status bar
 " Toggle list in normal mode
 nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
-set mouse=nvi
-set tags+=~/.vim/system.tags
+set listchars=tab:▸\ ,eol:¬     " Define list characters
+set mouse=nvi   
+set tags+=~/.vim/system.tags    " Define tag files
+set autoindent                  " Respect indentation when starting new line
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   " Enable file type detection
-  filetype on
+  filetype plugin indent on
 
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
@@ -86,7 +92,9 @@ if has("autocmd")
   " Customisations based on house-style (arbitrary)
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml

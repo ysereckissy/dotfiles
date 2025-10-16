@@ -99,6 +99,8 @@ if has("autocmd")
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
+  " Open folds on Buffer Read
+  autocmd BufRead * normal zR
 endif
 
 let g:netrw_banner = 0

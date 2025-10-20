@@ -28,3 +28,9 @@
 [submodule ".vim/pack/git-plugins/start/vim-ctrlp"]
 	path = .vim/pack/git-plugins/start/vim-ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule ".vim/pack/git-plugins/start/vim-ack"]
+	path = .vim/pack/git-plugins/start/vim-ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/pack/git-plugins/start/vim-easymotion"]
+	path = .vim/pack/git-plugins/start/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git

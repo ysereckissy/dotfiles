@@ -82,8 +82,9 @@ set autoindent                  " Respect indentation when starting new line
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-  " Enable file type detection
-  filetype plugin indent on
+  filetype on         " Enable file type detection
+  filetype plugin on  " Enable plugins and load plugins for the detected file type
+  filetype indent on  " Load and indent files for the detected file types
 
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
@@ -108,6 +109,7 @@ let g:netrw_banner = 0
 " add built-in packages first
 packadd termdebug
 
+packloadall   " Load all plugins.
 silent! helptags ALL    " Load help files for all plugins
 
 " Configure different plugins

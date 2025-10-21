@@ -77,3 +77,5 @@ mouse = "Right"
 mods = "Control"
 action = "PasteSelection"
 
+[env]
+TERM = xterm-256color

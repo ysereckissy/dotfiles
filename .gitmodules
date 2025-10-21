@@ -34,3 +34,6 @@
 [submodule ".vim/pack/git-plugins/start/vim-easymotion"]
 	path = .vim/pack/git-plugins/start/vim-easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
+[submodule ".vim/pack/git-plugins/start/vim-youcompleteme"]
+	path = .vim/pack/git-plugins/start/vim-youcompleteme
+	url = https://github.com/ycm-core/YouCompleteMe.git

@@ -80,6 +80,8 @@ set mouse=nvi
 set tags+=~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
 
+colorscheme wildcharm " Pick a colorscheme
+
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   filetype on         " Enable file type detection

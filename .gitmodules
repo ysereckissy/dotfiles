@@ -34,3 +34,6 @@
 [submodule ".vim/pack/git-plugins/opt/VimYouCompleteMe"]
 	path = .vim/pack/git-plugins/opt/VimYouCompleteMe
 	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule ".vim/pack/git-plugins/start/vim-fugitive"]
+	path = .vim/pack/git-plugins/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git

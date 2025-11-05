@@ -113,6 +113,9 @@ let g:netrw_banner = 0
 " add built-in packages first
 packadd termdebug
 packadd VimYouCompleteMe
+" Load and configure the undotree plugin
+noremap <f5> :UndotreeToggle <cr>
+packadd undotree
 
 packloadall   " Load all plugins.
 silent! helptags ALL    " Load help files for all plugins

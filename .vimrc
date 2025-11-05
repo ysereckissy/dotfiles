@@ -77,10 +77,11 @@ set laststatus=2        " Enable Status bar
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬     " Define list characters
 set mouse=nvi   
-set tags+=~/.vim/system.tags    " Define tag files
+set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
 
 colorscheme wildcharm " Pick a colorscheme
+colorscheme retrobox " Pick a colorscheme
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -99,6 +100,7 @@ if has("autocmd")
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType python set foldmethod=indent
   autocmd FileType vim setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType cpp setlocal ts=4 sts=4 sw=4 expandtab
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
@@ -110,9 +112,12 @@ let g:netrw_banner = 0
 
 " add built-in packages first
 packadd termdebug
+packadd VimYouCompleteMe
 
 packloadall   " Load all plugins.
 silent! helptags ALL    " Load help files for all plugins
+
+noremap <leader>] :YcmCompleter GoTo<cr>
 
 " Configure different plugins
 let NERDTreeHijackNetrw = 0

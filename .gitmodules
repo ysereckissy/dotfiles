@@ -40,3 +40,15 @@
 [submodule ".vim/pack/git-plugins/opt/undotree"]
 	path = .vim/pack/git-plugins/opt/undotree
 	url = git@github.com:mbbill/undotree.git
+[submodule ".vim/pack/git-plugins/opt/vcscommand"]
+	path = .vim/pack/git-plugins/opt/vcscommand
+	url = git@github.com:vim-scripts/vcscommand.vim.git
+[submodule ".vim/pack/git-plugins/opt/vimautoctags"]
+	path = .vim/pack/git-plugins/opt/vimautoctags
+	url = git@github.com:ytsuyuzaki/auto-ctags.vim.git
+[submodule ".vim/pack/git-plugins/opt/vimvc"]
+	path = .vim/pack/git-plugins/opt/vimvc
+	url = git@github.com:juneedahamed/vc.vim.git
+[submodule ".vim/pack/git-plugins/opt/spellCheck"]
+	path = .vim/pack/git-plugins/opt/spellCheck
+	url = https://github.com/inkarkat/vim-SpellCheck.git

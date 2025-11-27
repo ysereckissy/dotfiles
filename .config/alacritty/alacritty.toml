@@ -1,0 +1,91 @@
+[general]
+live_config_reload = true
+import = [
+	"~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
+]
+
+[window]
+opacity = 0.9
+dynamic_title = true
+decorations_theme_variant = "Dark"
+startup_mode = "Maximized"
+
+[window.padding]
+x = 5
+y = 5
+
+[[colors.indexed_colors]]
+color = "#FAB387"
+index = 16
+
+[[colors.indexed_colors]]
+color = "#F5E0DC"
+index = 17
+
+[colors.cursor]
+cursor = "#F5E0DC"
+text = "#1E1E2E"
+
+[colors.dim]
+black = "#45475A"
+blue = "#89B4FA"
+cyan = "#94E2D5"
+green = "#A6E3A1"
+magenta = "#F5C2E7"
+red = "#F38BA8"
+white = "#BAC2DE"
+yellow = "#F9E2AF"
+
+[colors.hints.end]
+background = "#A6ADC8"
+foreground = "#1E1E2E"
+
+[colors.hints.start]
+background = "#F9E2AF"
+foreground = "#1E1E2E"
+
+[colors.search.focused_match]
+background = "#A6E3A1"
+foreground = "#1E1E2E"
+
+[colors.search.matches]
+background = "#A6ADC8"
+foreground = "#1E1E2E"
+
+[colors.selection]
+background = "#F5E0DC"
+text = "#1E1E2E"
+
+[colors.vi_mode_cursor]
+cursor = "#B4BEFE"
+text = "#1E1E2E"
+
+[font]
+size = 14
+
+[font.normal]
+family = "JetBrainsMonoNerdFontMono"
+style = "Medium"
+[font.bold]
+family = "JetBrainsMonoNerdFontMono"
+style = "Bold"
+[font.italic]
+family = "JetBrainsMonoNerdFontMono"
+style = "MediumItalic"
+
+[font.bold_italic]
+family = "JetBrainsMonoNerdFontMono"
+style = "BoldItalic"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control"
+
+[[mouse.bindings]]
+mouse = "Right"
+mods = "Control"
+action = "PasteSelection"
+
+[env]
+TERM = "xterm-256color"

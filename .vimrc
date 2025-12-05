@@ -123,6 +123,9 @@ packadd vcscommand
 packadd vimvc
 " g:vc_username = "ysereckissy@markem-imaje.com"
 " g:vc_password = "Whhachiaow!11"
+packadd vimopenbrowser
+packadd vimplantumlsyntax
+packadd vimplantumlpreviewer
 
 set spelllang+=fr_FR
 " packadd spellCheck
@@ -135,6 +138,8 @@ nmap ,l :vertical res +10 <cr>
 nmap ,h :vertical res -10 <cr>
 nmap ,i :res +5 <cr>
 nmap ,k :res -5 <cr>
+
+command Vimrc :e $MYVIMRC
 
 " Configure different plugins
 let NERDTreeHijackNetrw = 0

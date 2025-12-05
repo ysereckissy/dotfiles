@@ -52,3 +52,12 @@
 [submodule ".vim/pack/git-plugins/opt/spellCheck"]
 	path = .vim/pack/git-plugins/opt/spellCheck
 	url = https://github.com/inkarkat/vim-SpellCheck.git
+[submodule ".vim/pack/git-plugins/opt/vimopenbrowser"]
+	path = .vim/pack/git-plugins/opt/vimopenbrowser
+	url = https://github.com/tyru/open-browser.vim.git
+[submodule ".vim/pack/git-plugins/opt/vimplantumlsyntax"]
+	path = .vim/pack/git-plugins/opt/vimplantumlsyntax
+	url = https://github.com/aklt/plantuml-syntax.git
+[submodule ".vim/pack/git-plugins/opt/vimplantumlpreviewer"]
+	path = .vim/pack/git-plugins/opt/vimplantumlpreviewer
+	url = https://github.com/weirongxu/plantuml-previewer.vim.git

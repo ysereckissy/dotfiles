@@ -116,11 +116,25 @@ packadd VimYouCompleteMe
 " Load and configure the undotree plugin
 noremap <f5> :UndotreeToggle <cr>
 packadd undotree
+" Load the vim auto-tags plugin
+packadd vimautoctags
+
+packadd vcscommand
+packadd vimvc
+" g:vc_username = "ysereckissy@markem-imaje.com"
+" g:vc_password = "Whhachiaow!11"
+
+set spelllang+=fr_FR
+" packadd spellCheck
 
 packloadall   " Load all plugins.
 silent! helptags ALL    " Load help files for all plugins
 
 noremap <leader>] :YcmCompleter GoTo<cr>
+nmap ,l :vertical res +10 <cr>
+nmap ,h :vertical res -10 <cr>
+nmap ,i :res +5 <cr>
+nmap ,k :res -5 <cr>
 
 " Configure different plugins
 let NERDTreeHijackNetrw = 0

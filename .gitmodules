@@ -61,3 +61,6 @@
 [submodule ".vim/pack/git-plugins/opt/vimplantumlpreviewer"]
 	path = .vim/pack/git-plugins/opt/vimplantumlpreviewer
 	url = https://github.com/weirongxu/plantuml-previewer.vim.git
+[submodule ".vim/pack/git-plugins/start/vim-colors-solarized"]
+	path = .vim/pack/git-plugins/start/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

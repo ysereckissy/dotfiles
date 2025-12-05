@@ -80,8 +80,8 @@ set mouse=nvi
 set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
 
-colorscheme wildcharm " Pick a colorscheme
-colorscheme retrobox " Pick a colorscheme
+set background=dark
+colorscheme solarized " Pick a colorscheme
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -139,7 +139,7 @@ nmap ,h :vertical res -10 <cr>
 nmap ,i :res +5 <cr>
 nmap ,k :res -5 <cr>
 
-command Vimrc :e $MYVIMRC
+command EditVimrc :e $MYVIMRC
 
 " Configure different plugins
 let NERDTreeHijackNetrw = 0

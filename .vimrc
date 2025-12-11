@@ -126,6 +126,7 @@ packadd vimvc
 packadd vimopenbrowser
 packadd vimplantumlsyntax
 packadd vimplantumlpreviewer
+packadd grepoperator
 
 set spelllang+=fr_FR
 " packadd spellCheck
@@ -140,7 +141,7 @@ let NERDTreeHijackNetrw = 0
 source $HOME/dotfiles/.config/plugins/nerd-tree.vim
 
 " Add some useful abbreviations
-:iabbrev @@ yannick.sereckissy@gmail.com
+" :iabbrev @@ yannick.sereckissy@gmail.com
 :iabbrev ccopy Copyright 2025 Yannick Sereckissy-Namboy, all rights reserved.
 :iabbrev ssig -- <cr>Yannick Sereckissy<cr>yannick.sereckissy@gmail.com
 

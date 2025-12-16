@@ -129,6 +129,7 @@ packadd vimplantumlpreviewer
 packadd grepoperator
 
 set spelllang+=fr_FR
+set viminfo='1000,f1,<500,%,s100,h
 " packadd spellCheck
 
 packloadall   " Load all plugins.

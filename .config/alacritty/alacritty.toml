@@ -76,7 +76,6 @@ style = "MediumItalic"
 [font.bold_italic]
 family = "JetBrainsMonoNerdFontMono"
 style = "BoldItalic"
-
 [[keyboard.bindings]]
 action = "CreateNewWindow"
 key = "N"

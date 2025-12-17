@@ -118,6 +118,7 @@ noremap <f5> :UndotreeToggle <cr>
 packadd undotree
 " Load the vim auto-tags plugin
 packadd vimautoctags
+let g:auto_ctags = 1
 
 packadd vcscommand
 packadd vimvc

@@ -112,22 +112,24 @@ let g:netrw_banner = 0
 
 " add built-in packages first
 packadd termdebug
-packadd VimYouCompleteMe
+" packadd VimYouCompleteMe
 " Load and configure the undotree plugin
 noremap <f5> :UndotreeToggle <cr>
-packadd undotree
+" packadd undotree
 " Load the vim auto-tags plugin
-packadd vimautoctags
-let g:auto_ctags = 1
+" packadd vimautoctags
+" let g:auto_ctags = 1
 
-packadd vcscommand
-packadd vimvc
-" g:vc_username = "ysereckissy@markem-imaje.com"
-" g:vc_password = "Whhachiaow!11"
+" packadd vcscommand
+" packadd vimvc
 packadd vimopenbrowser
 packadd vimplantumlsyntax
 packadd vimplantumlpreviewer
-packadd grepoperator
+" packadd grepoperator
+" packadd vimautotag
+" packadd vimanyjump
+packadd vimcscope
+
 
 set spelllang+=fr_FR
 set viminfo='1000,f1,<500,%,s100,h
@@ -136,7 +138,15 @@ set viminfo='1000,f1,<500,%,s100,h
 packloadall   " Load all plugins.
 silent! helptags ALL    " Load help files for all plugins
 
-source $HOME/dotfiles/.vim/config/mappings.vim
+let vim_mapping_file = "$HOME/dotfiles/.vim/config/mappings.vim"
+if filereadable(expand(vim_mapping_file))
+  execute "source " . expand(vim_mapping_file)
+endif
+
+let cpp_id_configuration_file = '/workdir/config/vim/projects/config.vim'
+if filereadable(expand(cpp_id_configuration_file))
+  execute "source " . expand(cpp_id_configuration_file)
+endif
 
 " Configure different plugins
 let NERDTreeHijackNetrw = 0
@@ -147,4 +157,3 @@ source $HOME/dotfiles/.config/plugins/nerd-tree.vim
 :iabbrev ccopy Copyright 2025 Yannick Sereckissy-Namboy, all rights reserved.
 :iabbrev ssig -- <cr>Yannick Sereckissy<cr>yannick.sereckissy@gmail.com
 
-autocmd BufNewFile * :write

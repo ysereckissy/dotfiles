@@ -9,10 +9,10 @@ command SourceVimrc :source $MYVIMRC
 "   Normal mode Mappings Section
 "==============================================================
 noremap <leader>] :YcmCompleter GoTo<cr>
-nnoremap <leader>l :vertical res +10 <cr>
-nnoremap <leader>h :vertical res -10 <cr>
-nnoremap <leader>i :res +5 <cr>
-nnoremap <leader>k :res -5 <cr>
+" nnoremap <leader>l :vertical res +10 <cr>
+" nnoremap <leader>h :vertical res -10 <cr>
+" nnoremap <leader>i :res +5 <cr>
+" nnoremap <leader>k :res -5 <cr>
 nnoremap <leader><s-n> :setlocal number!<cr>
 nnoremap <leader>f :call <SID>FoldColumnToggle()<cr>
 nnoremap <leader>q :call <SID>QuickfixToggle()<cr>

@@ -67,3 +67,9 @@
 [submodule ".vim/pack/git-plugins/opt/vimautotag"]
 	path = .vim/pack/git-plugins/opt/vimautotag
 	url = https://github.com/craigemery/vim-autotag.git
+[submodule ".vim/pack/git-plugins/opt/vimanyjump"]
+	path = .vim/pack/git-plugins/opt/vimanyjump
+	url = https://github.com/pechorin/any-jump.vim.git
+[submodule ".vim/pack/git-plugins/opt/vimcscope"]
+	path = .vim/pack/git-plugins/opt/vimcscope
+	url = https://github.com/brookhong/cscope.vim.git

@@ -52,7 +52,6 @@ endif
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
-
   " For all text files set 'textwidth' to 100 characters.
   autocmd FileType text setlocal textwidth=100
 augroup END
@@ -112,9 +111,9 @@ let g:netrw_banner = 0
 
 " add built-in packages first
 packadd termdebug
-" packadd VimYouCompleteMe
+packadd VimYouCompleteMe
 " Load and configure the undotree plugin
-noremap <f5> :UndotreeToggle <cr>
+" noremap <f5> :UndotreeToggle <cr>
 " packadd undotree
 " Load the vim auto-tags plugin
 " packadd vimautoctags
@@ -126,12 +125,10 @@ packadd vimopenbrowser
 packadd vimplantumlsyntax
 packadd vimplantumlpreviewer
 " packadd grepoperator
-" packadd vimautotag
-" packadd vimanyjump
-packadd vimcscope
+packadd vimautotag
 
 
-set spelllang+=fr_FR
+" set spelllang+=fr_FR
 set viminfo='1000,f1,<500,%,s100,h
 " packadd spellCheck
 
@@ -148,12 +145,15 @@ if filereadable(expand(cpp_id_configuration_file))
   execute "source " . expand(cpp_id_configuration_file)
 endif
 
-" Configure different plugins
-let NERDTreeHijackNetrw = 0
-source $HOME/dotfiles/.config/plugins/nerd-tree.vim
+let vim_plugin_list = "$HOME/dotfiles/plugins.vim"
+if filereadable(expand(vim_plugin_list))
+  execute "source " . expand(vim_plugin_list)
+  " Configure different plugins
+  let NERDTreeHijackNetrw = 0
+  source $HOME/dotfiles/.config/plugins/nerd-tree.vim
+endif
 
 " Add some useful abbreviations
 " :iabbrev @@ yannick.sereckissy@gmail.com
 :iabbrev ccopy Copyright 2025 Yannick Sereckissy-Namboy, all rights reserved.
 :iabbrev ssig -- <cr>Yannick Sereckissy<cr>yannick.sereckissy@gmail.com
-

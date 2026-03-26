@@ -77,8 +77,10 @@ set listchars=tab:▸\ ,eol:¬     " Define list characters
 set mouse=nvi   
 set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
+set hidden
 
 set background=dark
+set showtabline=0
 "colorscheme solarized " Pick a colorscheme
 colorscheme desert " Pick a colorscheme
 
@@ -148,10 +150,10 @@ endif
 let vim_plugin_list = "$HOME/dotfiles/plugins.vim"
 if filereadable(expand(vim_plugin_list))
   execute "source " . expand(vim_plugin_list)
-  " Configure different plugins
-  let NERDTreeHijackNetrw = 0
-  source $HOME/dotfiles/.config/plugins/nerd-tree.vim
 endif
+" Configure different plugins
+let NERDTreeHijackNetrw = 0
+source $HOME/dotfiles/.config/plugins/nerd-tree.vim
 
 " Add some useful abbreviations
 " :iabbrev @@ yannick.sereckissy@gmail.com

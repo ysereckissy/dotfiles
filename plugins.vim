@@ -12,9 +12,14 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'mhinz/vim-signify'
 call plug#end()
 
 let airline_config_file = "$HOME/dotfiles/.config/plugins/airline.vim"
 if filereadable(expand(airline_config_file))
   execute "source " . expand(airline_config_file)
+endif
+
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif

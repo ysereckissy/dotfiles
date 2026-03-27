@@ -71,6 +71,7 @@ set encoding=utf-8      " Set encoding
 set incsearch           " Enable incremental search
 set number              " Show line number
 set laststatus=2        " Enable Status bar
+set termguicolors
 " Toggle list in normal mode
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬     " Define list characters

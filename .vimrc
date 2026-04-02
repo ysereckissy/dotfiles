@@ -81,7 +81,6 @@ set autoindent                  " Respect indentation when starting new line
 set hidden
 
 set background=dark
-set showtabline=0
 "colorscheme solarized " Pick a colorscheme
 colorscheme desert " Pick a colorscheme
 
@@ -114,28 +113,9 @@ let g:netrw_banner = 0
 
 " add built-in packages first
 packadd termdebug
-packadd VimYouCompleteMe
-" Load and configure the undotree plugin
-" noremap <f5> :UndotreeToggle <cr>
-" packadd undotree
-" Load the vim auto-tags plugin
-" packadd vimautoctags
-" let g:auto_ctags = 1
-
-" packadd vcscommand
-" packadd vimvc
-packadd vimopenbrowser
-packadd vimplantumlsyntax
-packadd vimplantumlpreviewer
-" packadd grepoperator
-packadd vimautotag
-
-
-" set spelllang+=fr_FR
-set viminfo='1000,f1,<500,%,s100,h
-" packadd spellCheck
-
 packloadall   " Load all plugins.
+
+set viminfo='1000,f1,<500,%,s100,h
 silent! helptags ALL    " Load help files for all plugins
 
 let vim_mapping_file = "$HOME/dotfiles/.vim/config/mappings.vim"
@@ -155,6 +135,8 @@ endif
 " Configure different plugins
 let NERDTreeHijackNetrw = 0
 source $HOME/dotfiles/.config/plugins/nerd-tree.vim
+
+set showtabline=0
 
 " Add some useful abbreviations
 " :iabbrev @@ yannick.sereckissy@gmail.com

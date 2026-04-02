@@ -13,6 +13,25 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'mhinz/vim-signify'
+Plug 'inside/vim-grep-operator'
+Plug 'mbbill/undotree'
+Plug 'tyru/open-browser.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'aklt/plantuml-syntax'
+" C/C++ Plugins
+Plug 'bfrg/vim-c-cpp-modern'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'preservim/tagbar'
+Plug 'vim-scripts/vim-svngutter'
+" Web development Plugin
+Plug 'mattn/emmet-vim'
+Plug 'skammer/vim-css-color'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'airblade/vim-tailwind'
+Plug 'ycm-core/YouCompleteMe'
+
 call plug#end()
 
 let airline_config_file = "$HOME/dotfiles/.config/plugins/airline.vim"

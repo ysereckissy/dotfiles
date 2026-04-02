@@ -57,4 +57,4 @@ vnoremap <leader>" <esc>`>a'<esc>`<i'<esc>
 
 inoremap jk <esc>
 inoremap <esc> <nop>
-
+noremap <leader>t :TagbarToggle<CR>

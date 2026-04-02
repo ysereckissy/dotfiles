@@ -1,7 +1,7 @@
 " Air-line configuration
 let g:airline_theme = 'solarized_flood'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 1
 " let g:airline_statusline_ontop=1
 let g:airline_left_sep = '>'
 let g:airline_right_sep = '<'

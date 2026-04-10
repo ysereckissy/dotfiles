@@ -134,7 +134,6 @@ if filereadable(expand(vim_plugin_list))
 endif
 " Configure different plugins
 let NERDTreeHijackNetrw = 0
-source $HOME/dotfiles/.config/plugins/nerd-tree.vim
 
 set showtabline=0
 

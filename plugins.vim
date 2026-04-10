@@ -37,7 +37,7 @@ Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
-let airline_config_file = "$HOME/dotfiles/.config/plugins/airline.vim"
+let airline_config_file = "$HOME/dotfiles/.vim/config/plugins/airline.vim"
 if filereadable(expand(airline_config_file))
   execute "source " . expand(airline_config_file)
 endif
@@ -46,7 +46,13 @@ if executable("ag")
     let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
 
-let nerdtree_syntax_config_file = "$HOME/dotfiles/.config/plugins/nerdtree-syntax-highlight.vim"
+let nerdtree_syntax_config_file = "$HOME/dotfiles/.vim/config/plugins/nerdtree-syntax-highlight.vim"
 if filereadable(expand(nerdtree_syntax_config_file))
     execute "source " . expand(nerdtree_syntax_config_file)
 endif
+
+let nerdtree_config_file = "$HOME/dotfiles/.vim/config/plugins/nerd-tree.vim"
+if filereadable(expand(nerdtree_config_file))
+  execute "source " . expand(nerdtree_config_file)
+endif
+

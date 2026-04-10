@@ -143,7 +143,7 @@ set showtabline=0
 :iabbrev ccopy Copyright 2025 Yannick Sereckissy-Namboy, all rights reserved.
 :iabbrev ssig -- <cr>Yannick Sereckissy<cr>yannick.sereckissy@gmail.com
 
-:map - ddp
-:map _ ddP
-:imap <c-u> jkviwU<esc>ea
-:nmap <c-u> viwU<esc>
+:noremap - ddp
+:noremap _ ddP
+:inoremap <c-u> jkviwU<esc>ea
+:nnoremap <c-u> viwU<esc>

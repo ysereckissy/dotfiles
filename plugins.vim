@@ -7,7 +7,7 @@ endif
 " Plugin management with vim-plug
 call plug#begin()
 Plug 'tpope/vim-sensible'
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -18,6 +18,9 @@ Plug 'mbbill/undotree'
 Plug 'tyru/open-browser.vim'
 Plug 'weirongxu/plantuml-previewer.vim'
 Plug 'aklt/plantuml-syntax'
+Plug 'mhinz/vim-startify'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " C/C++ Plugins
 Plug 'bfrg/vim-c-cpp-modern'
 Plug 'ludovicchabant/vim-gutentags'
@@ -41,4 +44,9 @@ endif
 
 if executable("ag")
     let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+
+let nerdtree_syntax_config_file = "$HOME/dotfiles/.config/plugins/nerdtree-syntax-highlight.vim"
+if filereadable(expand(nerdtree_syntax_config_file))
+    execute "source " . expand(nerdtree_syntax_config_file)
 endif

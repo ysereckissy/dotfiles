@@ -80,9 +80,9 @@ set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
 set hidden
 
-set background=dark
+"set background=dark
 "colorscheme solarized " Pick a colorscheme
-colorscheme desert " Pick a colorscheme
+"colorscheme desert " Pick a colorscheme
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -142,3 +142,8 @@ set showtabline=0
 " :iabbrev @@ yannick.sereckissy@gmail.com
 :iabbrev ccopy Copyright 2025 Yannick Sereckissy-Namboy, all rights reserved.
 :iabbrev ssig -- <cr>Yannick Sereckissy<cr>yannick.sereckissy@gmail.com
+
+:map - ddp
+:map _ ddP
+:imap <c-u> jkviwU<esc>ea
+:nmap <c-u> viwU<esc>

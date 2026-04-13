@@ -19,6 +19,7 @@ endif
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
+" Backup and Undo Redo configuration --------------- {{{
 if has("vms")
   set nobackup          " do not keep a backup file, use versions instead
 else
@@ -48,6 +49,7 @@ if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
 endif
+" }}}
 
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
@@ -65,7 +67,11 @@ augroup END
 if has('syntax') && has('eval')
   packadd! matchit
 endif
+" add built-in packages first
+packadd termdebug
+packloadall   " Load all plugins.
 
+" Basic vim options setting ---------------------------- {{{
 set wrap                " Automatically wrap text
 set encoding=utf-8      " Set encoding
 set incsearch           " Enable incremental search
@@ -79,7 +85,9 @@ set mouse=nvi
 set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
 set hidden
-
+set foldlevelstart=0
+" }}}
+" FileType autocommands settings ------------------------- {{{
 "set background=dark
 "colorscheme solarized " Pick a colorscheme
 "colorscheme desert " Pick a colorscheme
@@ -108,19 +116,21 @@ if has("autocmd")
   " Open folds on Buffer Read
   autocmd BufRead * normal zR
 endif
-
+" }}}
 let g:netrw_banner = 0
-
-" add built-in packages first
-packadd termdebug
-packloadall   " Load all plugins.
 
 set viminfo='1000,f1,<500,%,s100,h
 silent! helptags ALL    " Load help files for all plugins
 
+" Load External Configuration Files ----------------- {{{
 let vim_mapping_file = "$HOME/dotfiles/.vim/config/mappings.vim"
 if filereadable(expand(vim_mapping_file))
   execute "source " . expand(vim_mapping_file)
+endif
+
+let vim_abbreviations_file = "$HOME/dotfiles/.vim/config/abbreviations.vim"
+if filereadable(expand(vim_abbreviations_file))
+  execute "source " . expand(vim_abbreviations_file)
 endif
 
 let cpp_id_configuration_file = '/workdir/config/vim/projects/config.vim'
@@ -132,17 +142,33 @@ let vim_plugin_list = "$HOME/dotfiles/plugins.vim"
 if filereadable(expand(vim_plugin_list))
   execute "source " . expand(vim_plugin_list)
 endif
+" }}}
 " Configure different plugins
 let NERDTreeHijackNetrw = 0
 
 set showtabline=0
+" Some Useful Mappings ----------------------------------- {{{
+:noremap <leader>- ddp
+:noremap <leader>_ ddP
+:inoremap <leader><c-u> jkviwU<esc>ea
+:nnoremap <leader><c-u> viwU<esc>
+" }}}
 
-" Add some useful abbreviations
-" :iabbrev @@ yannick.sereckissy@gmail.com
-:iabbrev ccopy Copyright 2025 Yannick Sereckissy-Namboy, all rights reserved.
-:iabbrev ssig -- <cr>Yannick Sereckissy<cr>yannick.sereckissy@gmail.com
+" Add some autocmd here combined with abbreviations
+" TODO: Find some good way to manage autocmds
+" Vimscript autocommands definitions -------------------- {{{
+augroup code_snippet
+  autocmd!
+  autocmd FileType python :iabbrev <buffer> iff if:<left>
+  autocmd FileType javascript :iabbrev <buffer> iff if ()<left>
+augroup end
+augroup filetype_html
+  autocmd!
+  autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup end 
 
-:noremap - ddp
-:noremap _ ddP
-:inoremap <c-u> jkviwU<esc>ea
-:nnoremap <c-u> viwU<esc>
+augroup filetype_vim
+  au!
+  au FileType vim setlocal foldmethod=marker
+augroup end
+" }}}

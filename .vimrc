@@ -72,14 +72,13 @@ packadd termdebug
 packloadall   " Load all plugins.
 
 " Basic vim options setting ---------------------------- {{{
-set wrap                " Automatically wrap text
+let &showtabline = 0
+let &wrap = 1               " Automatically wrap text
 set encoding=utf-8      " Set encoding
 set incsearch           " Enable incremental search
 set number              " Show line number
 set laststatus=2        " Enable Status bar
 set termguicolors
-" Toggle list in normal mode
-nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬     " Define list characters
 set mouse=nvi   
 set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
@@ -141,7 +140,6 @@ endif
 " Configure different plugins
 let NERDTreeHijackNetrw = 0
 
-set showtabline=0
 " Some Useful Mappings ----------------------------------- {{{
 let mapleader = ","
 let maplocalleader = "\\"
@@ -203,6 +201,7 @@ nnoremap <S-h> 0
 nnoremap <S-l> $
 
 inoremap jk <esc>
+nnoremap <leader>l :set list!<CR>
 noremap <leader>t :TagbarToggle<CR>
 :noremap <leader>- ddp
 :noremap <leader>_ ddP

@@ -123,11 +123,6 @@ set viminfo='1000,f1,<500,%,s100,h
 silent! helptags ALL    " Load help files for all plugins
 
 " Load External Configuration Files ----------------- {{{
-let vim_mapping_file = "$HOME/dotfiles/.vim/config/mappings.vim"
-if filereadable(expand(vim_mapping_file))
-  execute "source " . expand(vim_mapping_file)
-endif
-
 let vim_abbreviations_file = "$HOME/dotfiles/.vim/config/abbreviations.vim"
 if filereadable(expand(vim_abbreviations_file))
   execute "source " . expand(vim_abbreviations_file)

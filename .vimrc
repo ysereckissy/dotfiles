@@ -85,11 +85,9 @@ set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
 set hidden
 set foldlevelstart=0
+colorscheme gruvbox 
 " }}}
 " FileType autocommands settings ------------------------- {{{
-"set background=dark
-"colorscheme solarized " Pick a colorscheme
-"colorscheme desert " Pick a colorscheme
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -263,6 +261,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'airblade/vim-tailwind'
 " Plug 'ycm-core/YouCompleteMe'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 call plug#end()
 

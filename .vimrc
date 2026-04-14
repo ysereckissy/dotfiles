@@ -72,8 +72,8 @@ packadd termdebug
 packloadall   " Load all plugins.
 
 " Basic vim options setting ---------------------------- {{{
-let &showtabline = 0
-let &wrap = 1               " Automatically wrap text
+set showtabline=0
+set wrap               " Automatically wrap text
 set encoding=utf-8      " Set encoding
 set incsearch           " Enable incremental search
 set number              " Show line number
@@ -116,27 +116,26 @@ if has("autocmd")
   autocmd BufRead * normal zR
 endif
 " }}}
+" Abbreviations Definitions --------------------------------------------- {{{
+" Add some useful abbreviations
+iabbrev adn and
+iabbrev waht what
+iabbrev tehn then
+iabbrev @@ ysereckissy@markem-imaje.com
+iabbrev ccopy Copyright 2025 Yannick Sereckissy-Namboy, all rights reserved.
+iabbrev ssig -- <cr>Yannick Sereckissy<cr>ysereckissy@markem-imaje.com
+" }}}
+" Projects Configurations -------------------------------------------- {{{
+let cpp_id_configuration_file = '/workdir/config/vim/projects/config.vim'
+if filereadable(expand(cpp_id_configuration_file))
+  execute "source " . expand(cpp_id_configuration_file)
+endif
+" }}}
 let g:netrw_banner = 0
 
 set viminfo='1000,f1,<500,%,s100,h
 silent! helptags ALL    " Load help files for all plugins
 
-" Load External Configuration Files ----------------- {{{
-let vim_abbreviations_file = "$HOME/dotfiles/.vim/config/abbreviations.vim"
-if filereadable(expand(vim_abbreviations_file))
-  execute "source " . expand(vim_abbreviations_file)
-endif
-
-let cpp_id_configuration_file = '/workdir/config/vim/projects/config.vim'
-if filereadable(expand(cpp_id_configuration_file))
-  execute "source " . expand(cpp_id_configuration_file)
-endif
-
-let vim_plugin_list = "$HOME/dotfiles/plugins.vim"
-if filereadable(expand(vim_plugin_list))
-  execute "source " . expand(vim_plugin_list)
-endif
-" }}}
 " Configure different plugins
 let NERDTreeHijackNetrw = 0
 
@@ -225,4 +224,181 @@ augroup filetype_vim
   au!
   au FileType vim setlocal foldmethod=marker
 augroup end
+" }}}
+
+" External Vim Plugins Configurations ----------------- {{{
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Plugin management with vim-plug
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'mhinz/vim-signify'
+Plug 'inside/vim-grep-operator'
+Plug 'mbbill/undotree'
+Plug 'tyru/open-browser.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'aklt/plantuml-syntax'
+Plug 'mhinz/vim-startify'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" C/C++ Plugins
+Plug 'bfrg/vim-c-cpp-modern'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'preservim/tagbar'
+Plug 'vim-scripts/vim-svngutter'
+" Web development Plugin
+Plug 'mattn/emmet-vim'
+Plug 'skammer/vim-css-color'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'airblade/vim-tailwind'
+Plug 'ycm-core/YouCompleteMe'
+
+call plug#end()
+
+" Vim Airline Plugin Configuration --------------------------- {{{
+let g:airline_theme = 'google_light'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline_statusline_ontop=1
+let g:airline_left_sep = '>'
+let g:airline_right_sep = '<'
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
+let g:airline_exclude_preview = 1
+
+" enable/disable vim-ctrlspace integration
+let g:airline#extensions#ctrlspace#enable = 1
+let g:ctrlspace_status_line_function = "airline#extensions#ctrlspace#statusline()"
+
+let g:ctrlspace_use_tabline = 1
+hi CtrlSpaceSelected term=reverse ctermfg=187   guifg=#d7d7af ctermbg=23    guibg=#005f5f cterm=bold gui=bold
+hi CtrlSpaceNormal   term=NONE    ctermfg=244   guifg=#808080 ctermbg=232   guibg=#080808 cterm=NONE gui=NONE
+hi CtrlSpaceSearch   ctermfg=220  guifg=#ffd700 ctermbg=NONE  guibg=NONE    cterm=bold    gui=bold
+hi CtrlSpaceStatus   ctermfg=230  guifg=#ffffd7 ctermbg=234   guibg=#1c1c1c cterm=NONE    gui=NONE
+" }}}
+" Control Space Plugin Configuration ------------------------------------- {{{
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+" }}}
+" NERDTree Plugin Configuration --------------------------------------- {{{
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+let g:NERDTreeFileLines = 1
+let g:NERDTreeDirArrowExpandable = '|'
+let g:NERDTreeDirArrowCollapsible = '--'
+
+" Configure vim-nerdtree-syntax-highlight plugin
+let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+
+" Disable Highlighting
+let g:NERDTreeDisableFileExtensionHighlight = 1
+let g:NERDTreeDisableExactMatchHighlight = 1
+let g:NERDTreeDisablePatternMatchHighlight = 1
+
+" Highlight full name
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+" Highlight folder using exact match
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+" Customizing colors
+" you can add these colors to your .vimrc to help customizing
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
+
+let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
+
+let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+
+let g:WebDevIconsDefaultFolderSymbolColor = s:beige " sets the color for folders that did not match any rule
+let g:WebDevIconsDefaultFileSymbolColor = s:blue " sets the color for files that did not match any rule
+
+" If you have vim-devicons you can customize your icons for each file type.
+let g:NERDTreeExtensionHighlightColor = {} "this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['css'] = '' "assigning it to an empty string will skip highlight
+
+" Disable uncommon file extension highlighting
+let g:NERDTreeLimitedSyntax = 1
+
+" Disable all default file highlighting
+let g:NERDTreeSyntaxDisableDefaultExtensions = 1
+let g:NERDTreeSyntaxDisableDefaultExactMatches = 1
+let g:NERDTreeSyntaxDisableDefaultPatternMatches = 1
+
+" set g:NERDTreeExtensionHighlightColor if you want a custom color instead of the default one
+let g:NERDTreeSyntaxEnabledExtensions = ['hbs', 'lhs'] " enable highlight to .hbs and .lhs files with default colors
+let g:NERDTreeSyntaxEnabledExactMatches = ['dropbox', 'node_modules', 'favicon.ico'] " enable highlight for dropbox and node_modules folders, and favicon.ico files with default colors
+" NERDTree Syntax Hightlight Plugin Configuration ----------------- {{{
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
+
+let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
+
+let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+
+let g:WebDevIconsDefaultFolderSymbolColor = s:beige " sets the color for folders that did not match any rule
+let g:WebDevIconsDefaultFileSymbolColor = s:blue " sets the color for files that did not match any rule
+" }}}
+" }}}
+
 " }}}

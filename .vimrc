@@ -78,14 +78,16 @@ set encoding=utf-8      " Set encoding
 set incsearch           " Enable incremental search
 set number              " Show line number
 set laststatus=2        " Enable Status bar
-set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
 set listchars=tab:▸\ ,eol:¬     " Define list characters
 set mouse=nvi   
 set tags+=./tags,tags,~/.vim/system.tags    " Define tag files
 set autoindent                  " Respect indentation when starting new line
 set hidden
 set foldlevelstart=0
-colorscheme gruvbox 
+set background=dark
 " }}}
 " FileType autocommands settings ------------------------- {{{
 
@@ -265,6 +267,10 @@ Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 call plug#end()
 
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_light = "hard"
+let g:gruvbox_contrast_dark = "hard"
+colorscheme gruvbox 
 " Vim Airline Plugin Configuration --------------------------- {{{
 let g:airline_theme = 'google_light'
 " let g:airline#extensions#tabline#enabled = 1
